@@ -1,5 +1,4 @@
 call plug#begin('~/.config/vim/plugged')
-
 	" Theme
 	Plug 'morhetz/gruvbox'
 	Plug 'dracula/vim', { 'as': 'dracula' }
@@ -49,6 +48,8 @@ call plug#begin('~/.config/vim/plugged')
 	" Syntax
 	Plug 'vim-syntastic/syntastic'
 
+	" Vim Comment
+	Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -199,3 +200,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='wombat'
 
 " Mapping TABS
+nnoremap <C-Left> :bp<CR>
+nnoremap <C-Right> :bn<CR>
+nnoremap <C-Up> :bf<CR>
+nnoremap <C-Down> :bl<CR>

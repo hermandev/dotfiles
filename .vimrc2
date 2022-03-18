@@ -48,6 +48,9 @@ call plug#begin('~/.config/vim/plugged')
 	
 	" Syntax
 	Plug 'vim-syntastic/syntastic'
+	
+	" Vim Comment                                                                                                         
+ 	Plug 'tpope/vim-commentary' 
 
 
 call plug#end()

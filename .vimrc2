@@ -25,8 +25,10 @@ call plug#begin('~/.config/vim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'jiangmiao/auto-pairs'
 
-	" Dart
+	" Dart & Flutter
 	Plug 'dart-lang/dart-vim-plugin'
+	Plug 'thosakwe/vim-flutter'
+
 
 	" Typescript
 	Plug 'ianks/vim-tsx'
@@ -51,6 +53,12 @@ call plug#begin('~/.config/vim/plugged')
 	" Vim Comment
 	Plug 'tpope/vim-commentary'
 
+	Plug 'jbyuki/venn.nvim'
+	
+	Plug 'voldikss/vim-floaterm'
+
+	Plug 'pantharshit00/vim-prisma'
+
 call plug#end()
 
 set background=dark
@@ -73,7 +81,8 @@ set incsearch
 set tabstop=2
 set softtabstop=0 noexpandtab
 set shiftwidth=2
-set colorcolumn=120
+" set colorcolumn=120
+set cursorline
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -200,7 +209,33 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='wombat'
 
 " Mapping TABS
-nnoremap <C-Left> :bp<CR>
-nnoremap <C-Right> :bn<CR>
-nnoremap <C-Up> :bf<CR>
-nnoremap <C-Down> :bl<CR>
+nnoremap <leader><Left> :bp<CR>
+nnoremap <leader><Right> :bn<CR>
+nnoremap <leader><Up> :bf<CR>
+nnoremap <leader><Down> :bl<CR>
+
+" Mapping FloatTerminal
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
+
+" FLUTTER CONFIG
+
+" Some of these key choices were arbitrary;
+" it's just an example.
+nnoremap <leader>fa :FlutterRun<cr>
+nnoremap <leader>fq :FlutterQuit<cr>
+nnoremap <leader>fr :FlutterHotReload<cr>
+nnoremap <leader>fR :FlutterHotRestart<cr>
+nnoremap <leader>fD :FlutterVisualDebug<cr>
+
+
+" COC Rest Client Config
+noremap <Leader>0 :CocCommand rest-client.request <cr>
+
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost .vimrc source %
+augroup END
+
